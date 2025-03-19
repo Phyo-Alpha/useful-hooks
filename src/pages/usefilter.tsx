@@ -7,7 +7,7 @@ import useURLState from "@/hooks/use-urlState";
 export default function UseFiltersPage() {
     const updateFilter = useFilters();
 
-    const { fullUrl, searchParams } = useURLState();
+    const { fullUrl, searchParams, updateUrl } = useURLState();
 
     const APIparams = [
         {
@@ -45,12 +45,12 @@ export default function UseFiltersPage() {
 
     function handleUpdateFilter(e: React.ChangeEvent<HTMLSelectElement>) {
         onChange("status", e.target.value);
-        window.dispatchEvent(new Event("popstate"));
+        updateUrl();
     }
 
     function handleUpdateInputFilter(e: React.ChangeEvent<HTMLInputElement>) {
         onChange("search", e.target.value);
-        window.dispatchEvent(new Event("popstate"));
+        updateUrl();
     }
 
     return (
@@ -132,7 +132,7 @@ export default function UseFiltersPage() {
                         <p>Here in this example I am transforming the active/inactive to 1 & 0 representation</p>
                         <select
                             className="w-full mt-4 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                            onChange={(e) => { onChange("status2", e.target.value); window.dispatchEvent(new Event("popstate")) }}>
+                            onChange={(e) => { onChange("status2", e.target.value); updateUrl() }}>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
                         </select>
@@ -146,7 +146,7 @@ export default function UseFiltersPage() {
                         <p>Here, I am passing transforming all to falsy value, thus the search key was deleted in the process</p>
                         <select
                             className="w-full mt-4 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                            onChange={(e) => { onChange("status3", e.target.value); window.dispatchEvent(new Event("popstate")) }}>
+                            onChange={(e) => { onChange("status3", e.target.value); updateUrl() }}>
                             <option value="all">All</option>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>

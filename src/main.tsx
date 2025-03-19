@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import { Docs } from './pages/docs.tsx'
 import UseFiltersPage from './pages/usefilter.tsx'
 import Introduction from './pages/introduction.tsx'
+import UseURLState from './pages/use-urlState.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -20,6 +21,9 @@ createRoot(document.getElementById('root')!).render(
           />
           <Route path="/docs/use-filter"
             element={<UseFiltersPage />}
+          />
+          <Route path="/docs/use-urlState"
+            element={<UseURLState />}
           />
         </Route>
       </Routes>

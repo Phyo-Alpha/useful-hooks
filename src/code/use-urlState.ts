@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+export const useURLStateCodeBlock = `import { useState, useEffect } from "react";
 
 const useURLState = () => {
     const [urlState, setUrlState] = useState({
@@ -30,4 +30,25 @@ const useURLState = () => {
     return { ...urlState, updateUrl };
 };
 
-export default useURLState;
+export default useURLState;`
+
+export const useURLStateCodeUsageExample = `import useURLState from "@/hooks/use-urlState";
+
+const { fullUrl, searchParams, updateUrl } = useURLState();
+
+function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
+    window.history.pushState({ path: window.location.href }, "", \`?search=\${e.target.value}\`);
+    updateUrl();
+}
+
+return (
+    <div>
+        <input
+            type="text"
+            value={searchParams.search}
+            onChange={handleSearchChange}
+        />
+        <p>Full URL: {fullUrl}</p>
+        <p>Search: searchParams['search']</p>
+    </div>
+)`;

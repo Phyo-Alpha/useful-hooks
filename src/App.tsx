@@ -24,7 +24,7 @@ function App() {
                     <h1 className="text-5xl">Useful-hooks.ts</h1>
                     <p className="text-lg tracking-wide text-center">A collections of use-hooks that I built during my works that I believed will be useful</p>
                     <button className="bg-foreground text-background px-4 py-2 rounded-lg shadow-md w-48 tracking-wider">
-                        <a href="/docs">
+                        <a href="/docs/introduction">
                             Explore the docs
                         </a>
                     </button>
